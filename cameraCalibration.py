@@ -4,7 +4,7 @@ import glob
 
 ################ FIND CHESSBOARD CORNERS - OBJECT POINTS AND IMAGE POINTS #############################
 
-chessboardSize = (10,7)
+chessboardSize = (9,6)
 frameSize = (640,480)
 
 # termination criteria
@@ -53,10 +53,15 @@ cv.destroyAllWindows()
 
 ret, cameraMatrix, dist, rvecs, tvecs = cv.calibrateCamera(objpoints, imgpoints, frameSize, None, None)
 
+print("Camera Calibrated: ", ret)
+print("\nCamera Matrix:\n ", cameraMatrix)
+print("\nDistortion Parameters:\n ", dist)
+print("\nRotation Vectors:\n ", rvecs)
+print("\nTranslation Vector\n: ", tvecs)
 
 ############## UNDISTORTION #####################################################
 
-img = cv.imread('cali5.png')
+img = cv.imread('Images\im_1\cali5.png')
 h,  w = img.shape[:2]
 newCameraMatrix, roi = cv.getOptimalNewCameraMatrix(cameraMatrix, dist, (w,h), 1, (w,h))
 
@@ -66,7 +71,7 @@ dst = cv.undistort(img, cameraMatrix, dist, None, newCameraMatrix)
 # crop the image
 x, y, w, h = roi
 dst = dst[y:y+h, x:x+w]
-cv.imwrite('caliResult1.png', dst)
+cv.imwrite('Images\cali_results_1\caliResult1.png', dst)
 
 
 
@@ -77,7 +82,7 @@ dst = cv.remap(img, mapx, mapy, cv.INTER_LINEAR)
 # crop the image
 x, y, w, h = roi
 dst = dst[y:y+h, x:x+w]
-cv.imwrite('caliResult2.png', dst)
+cv.imwrite('Images\cali_results_1\caliResult2.png', dst)
 
 
 # Reprojection Error
