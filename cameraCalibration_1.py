@@ -55,6 +55,11 @@ ret, cameraMatrix, dist, rvecs, tvecs = cv.calibrateCamera(objpoints, imgpoints,
 
 print("Camera Calibrated: ", ret)
 print("\nCamera Matrix:\n ", cameraMatrix)
+print("\nDistancia focal (fx):\n ", cameraMatrix[0, 0])
+print("\nDistancia focal (fy):\n ", cameraMatrix[1, 1])
+print("\nCentro de la imagen (Rx):\n ", cameraMatrix[0, 2])
+print("\nCentro de la imagen (Ry):\n ", cameraMatrix[1, 2])
+print("\nSkew:\n ", cameraMatrix[0, 1])
 print("\nDistortion Parameters:\n ", dist)
 print("\nRotation Vectors:\n ", rvecs)
 print("\nTranslation Vector\n: ", tvecs)
