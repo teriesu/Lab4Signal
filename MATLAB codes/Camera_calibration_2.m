@@ -36,7 +36,7 @@ h1=figure; showReprojectionErrors(cameraParams);
 h2=figure; showExtrinsics(cameraParams, 'CameraCentric');
 
 % Display parameter estimation errors
-displayErrors(estimationErrors, cameraParams);
+displayErrors(estimationErrors, cameraParams)
 
 % For example, you can use the calibration data to remove effects of lens distortion.
 undistortedImage = undistortImage(originalImage, cameraParams);

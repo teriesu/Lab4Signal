@@ -117,3 +117,4 @@ $$
 
 * https://la.mathworks.com/help/vision/ref/cameraparameters.html
 * https://moodle2018-19.ua.es/moodle/pluginfile.php/7304/mod_page/content/21/clase3.pdf
+* https://docs.opencv.org/3.4/da/d54/group__imgproc__transform.html
