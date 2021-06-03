@@ -18,17 +18,6 @@ plot(eje_yAcY)
 % 
 
 % dataIn = eje_y;
-%% Filtro IIR
-
-fc = 5;
-fs = 200;
-
-[b,a] = cheby1(3,1,fc/(fs/2),'low')
-
-%freqz(b,a)
-dataOutAcX = filter(b,a,eje_yAcX);
-dataOutAcY = filter(b,a,eje_yAcY);
-
 %% Salidas 
 
 % Salida filtrada de acelerometros

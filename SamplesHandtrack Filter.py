@@ -58,36 +58,36 @@ while line < num_samples:
                 h, w, c = img.shape
                 cx, cy = int(lm.x*w), int(lm.y*h)
 
-                ##################Filtrado IIR################
-                Ax_X = cx
-                Ay_X = b1*Ax_X + b2*Ax_1_X + b3*Ax_2_X + b4*Ax_3_X + a2*Ay_1_X + a3*Ay_2_X + a4*Ay_3_X
-                #Corrimientos de entrada
-                Ax_3_X = Ax_2_X
-                Ax_2_X = Ax_1_X
-                Ax_1_X = Ax_X
-                #Corrimientos de filtro
-                Ay_3_X = Ay_2_X
-                Ay_2_X = Ay_1_X
-                Ay_1_X = Ay_X
-                A_X_fil = Ay_X
-
-                Ax_Y = cy
-                Ay_Y = b1*Ax_Y + b2*Ax_1_Y + b3*Ax_2_Y + b4*Ax_3_Y + a2*Ay_1_Y + a3*Ay_2_Y + a4*Ay_3_Y
-                #Corrimientos de entrada
-                Ax_3_Y = Ax_2_Y
-                Ax_2_Y = Ax_1_Y
-                Ax_1_Y = Ax_Y
-                #Corrimientos de filtro
-                Ay_3_Y = Ay_2_Y
-                Ay_2_Y = Ay_1_Y
-                Ay_1_Y = Ay_Y
-                A_Y_fil = Ay_Y
-
-                fileAcX = open(NameCSVAcX, "a")
-                fileAcX.write(str(float(A_X_fil)) +','+ str(float(A_Y_fil)) + "\n")
                 if id==8:
                     print(id,cx,cy)
                     cv2.circle(img, (cx,cy),25,(255,0,255),cv2.FILLED)
+                    ##################Filtrado IIR################
+                    Ax_X = cx
+                    Ay_X = b1*Ax_X + b2*Ax_1_X + b3*Ax_2_X + b4*Ax_3_X + a2*Ay_1_X + a3*Ay_2_X + a4*Ay_3_X
+                    #Corrimientos de entrada
+                    Ax_3_X = Ax_2_X
+                    Ax_2_X = Ax_1_X
+                    Ax_1_X = Ax_X
+                    #Corrimientos de filtro
+                    Ay_3_X = Ay_2_X
+                    Ay_2_X = Ay_1_X
+                    Ay_1_X = Ay_X
+                    A_X_fil = Ay_X
+
+                    Ax_Y = cy
+                    Ay_Y = b1*Ax_Y + b2*Ax_1_Y + b3*Ax_2_Y + b4*Ax_3_Y + a2*Ay_1_Y + a3*Ay_2_Y + a4*Ay_3_Y
+                    #Corrimientos de entrada
+                    Ax_3_Y = Ax_2_Y
+                    Ax_2_Y = Ax_1_Y
+                    Ax_1_Y = Ax_Y
+                    #Corrimientos de filtro
+                    Ay_3_Y = Ay_2_Y
+                    Ay_2_Y = Ay_1_Y
+                    Ay_1_Y = Ay_Y
+                    A_Y_fil = Ay_Y
+
+                    fileAcX = open(NameCSVAcX, "a")
+                    fileAcX.write(str(float(A_X_fil)) +','+ str(float(A_Y_fil)) + "\n")
 
             mpDraw.draw_landmarks(img, handLms, mpHands.HAND_CONNECTIONS)
 
