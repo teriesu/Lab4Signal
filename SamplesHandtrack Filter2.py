@@ -10,7 +10,7 @@ mpHands= mp.solutions.hands
 hands = mpHands.Hands()
 mpDraw = mp.solutions.drawing_utils
 
-NameCSVAcX = "SamplesCam\CameraFilter1.csv"
+NameCSVAcX = "SamplesCam2\CameraFilter2.csv"
 MatAcX = []
 line = 0
 num_samples = 500
